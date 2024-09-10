@@ -4,7 +4,7 @@
 // @description  Improves the user experience of The Chairman's Bao website.
 // @author       Joshua Brest <36625023+JoshuaBrest@users.noreply.github.com>
 // @copyright    2024, Joshua Brest
-// @version      0.1.1
+// @version      0.1.2
 // @updateURL    https://raw.githubusercontent.com/JoshuaBrest/TCB-Tools/main/script.user.js
 // @downloadURL  https://raw.githubusercontent.com/JoshuaBrest/TCB-Tools/main/script.user.js
 // @namespace    http://tampermonkey.net/
@@ -611,7 +611,19 @@
 
         /**
          * Fetch the data.
-         * @returns {Promise<Array.<{ id: number; publishTime: number, dueTime: number, homeworkID: number, homeworkType: 'listening' | 'other', homeworkTitle: string, teacherID: number, teacherName: string }>>} The data.
+         * @returns {Promise<Array.<{
+         *     id: number;
+         *     name: string;
+         *     publishTime: number;
+         *     dueTime: number;
+         *     assignmentID: number;
+         *     assignmentType: 'listening' | 'other';
+         *     postID: number;
+         *     postTitle: string;
+         *     postThumbnailURL: URL;
+         *     teacherID: number;
+         *     teacherName: string;
+         * }>>} The data.
          */
         async function fetchData() {
             const [didFetch, response] = await fetchSafe('https://sonic.thechairmansbao.com/learning-hub/assignment/pending', {
@@ -656,11 +668,14 @@
 
             return json.map((assignment) => ({
                 id: assignment.id,
+                name: assignment.show_text,
                 publishTime: parseDateToTime(assignment.add_time),
                 dueTime: parseDateToTime(assignment.due_date_time),
-                homeworkID: assignment.homework_assigned_id,
-                homeworkType: assignment.assignment.type === 1 ? 'other' : 'listening',
-                homeworkTitle: assignment.show_text,
+                assignmentID: assignment.assignment_id,
+                assignmentType: assignment.assignment.type === 1 ? 'other' : 'listening',
+                postID: assignment.assignment.post.ID,
+                postTitle: assignment.assignment.post.post_title,
+                postThumbnailURL: new URL(assignment.assignment.post.thumbnail),
                 teacherID: assignment.teacher.ID,
                 teacherName: assignment.teacher.user_nicename ?? assignment.teacher.user_login
             }));
@@ -703,12 +718,12 @@
                         el('td', {}, [
                             el('a', {
                                 class: 'content-table-link',
-                                href: assignment.homeworkType === 'other'
-                                    ? '/?p=' + encodeURIComponent(assignment.id) + '&aid=' + encodeURIComponent(assignment.homeworkID)
-                                    : '/quiz?type=listening&id=' + encodeURIComponent(assignment.id) + '&aid=' + encodeURIComponent(assignment.homeworkID),
+                                href: assignment.assignmentType === 'other'
+                                    ? '/?p=' + encodeURIComponent(assignment.postID) + '&aid=' + encodeURIComponent(assignment.assignmentID)
+                                    : '/quiz?type=listening&id=' + encodeURIComponent(assignment.postID) + '&aid=' + encodeURIComponent(assignment.assignmentID),
                                 target: '_blank'
                             }, [
-                                assignment.homeworkTitle,
+                                assignment.name,
                                 el('svg', {
                                     xmlns: 'http://www.w3.org/2000/svg',
                                     fill: 'none',
