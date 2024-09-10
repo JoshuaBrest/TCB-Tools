@@ -5,8 +5,8 @@
 // @author       Joshua Brest <36625023+JoshuaBrest@users.noreply.github.com>
 // @copyright    2024, Joshua Brest
 // @version      0.1.0
-// @updateURL    https://raw.githubusercontent.com/JoshuaBrest/TCB-Tools/main/script.js
-// @downloadURL  https://raw.githubusercontent.com/JoshuaBrest/TCB-Tools/main/script.js
+// @updateURL    https://raw.githubusercontent.com/JoshuaBrest/TCB-Tools/main/script.user.js
+// @downloadURL  https://raw.githubusercontent.com/JoshuaBrest/TCB-Tools/main/script.user.js
 // @namespace    http://tampermonkey.net/
 // @match        https://www.thechairmansbao.com/*
 // @match        https://thechairmansbao.com/*
