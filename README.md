@@ -1,6 +1,6 @@
 # TCBT (The Chairman's Bao Tool)
 
-[![Install](https://img.shields.io/badge/TCB_Tools-Install-blue?style=for-the-badge)](https://https://raw.githubusercontent.com/JoshuaBrest/TCB-Tools/main/script.js)
+[![Install](https://img.shields.io/badge/TCB_Tools-Install-blue?style=for-the-badge)](https://raw.githubusercontent.com/JoshuaBrest/TCB-Tools/main/script.js)
 
 ## Description
 
