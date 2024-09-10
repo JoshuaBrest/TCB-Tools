@@ -1,5 +1,7 @@
 # TCBT (The Chairman's Bao Tool)
 
+[![Install](https://img.shields.io/badge/TCB_Tools-Install-blue?style=for-the-badge)](https://https://raw.githubusercontent.com/JoshuaBrest/TCB-Tools/main/script.js)
+
 ## Description
 
 A tampermonkey script that adds some features to The Chairman's Bao website.
