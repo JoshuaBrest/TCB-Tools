@@ -4,7 +4,7 @@
 // @description  Improves the user experience of The Chairman's Bao website.
 // @author       Joshua Brest <36625023+JoshuaBrest@users.noreply.github.com>
 // @copyright    2024, Joshua Brest
-// @version      0.1.0
+// @version      0.1.1
 // @updateURL    https://raw.githubusercontent.com/JoshuaBrest/TCB-Tools/main/script.user.js
 // @downloadURL  https://raw.githubusercontent.com/JoshuaBrest/TCB-Tools/main/script.user.js
 // @namespace    http://tampermonkey.net/
