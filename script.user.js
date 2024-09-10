@@ -611,7 +611,6 @@
 
         /**
          * Fetch the data.
-         * @returns {void}
          * @returns {Promise<Array.<{ id: number; publishTime: number, dueTime: number, homeworkID: number, homeworkType: 'listening' | 'other', homeworkTitle: string, teacherID: number, teacherName: string }>>} The data.
          */
         async function fetchData() {
@@ -669,7 +668,6 @@
 
         /**
          * Show the data.
-         * @returns {void}
          * @returns {Promise<void>}
          */
         async function contentMountShowData() {
@@ -706,8 +704,8 @@
                             el('a', {
                                 class: 'content-table-link',
                                 href: assignment.homeworkType === 'other'
-                                    ? '/?p=' + encodeURIComponent(assignment.homeworkID) + '&aid=' + encodeURIComponent(assignment.id)
-                                    : '/quiz?type=listening&id=' + encodeURIComponent(assignment.homeworkID) + '&aid=' + encodeURIComponent(assignment.id),
+                                    ? '/?p=' + encodeURIComponent(assignment.id) + '&aid=' + encodeURIComponent(assignment.homeworkID)
+                                    : '/quiz?type=listening&id=' + encodeURIComponent(assignment.id) + '&aid=' + encodeURIComponent(assignment.homeworkID),
                                 target: '_blank'
                             }, [
                                 assignment.homeworkTitle,
