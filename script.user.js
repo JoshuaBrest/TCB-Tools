@@ -671,7 +671,7 @@
                 name: assignment.show_text,
                 publishTime: parseDateToTime(assignment.add_time),
                 dueTime: parseDateToTime(assignment.due_date_time),
-                assignmentID: assignment.assignment_id,
+                assignmentID: assignment.assignment.id,
                 assignmentType: assignment.assignment.type === 1 ? 'other' : 'listening',
                 postID: assignment.assignment.post.ID,
                 postTitle: assignment.assignment.post.post_title,
@@ -720,7 +720,7 @@
                                 class: 'content-table-link',
                                 href: assignment.assignmentType === 'other'
                                     ? '/?p=' + encodeURIComponent(assignment.postID) + '&aid=' + encodeURIComponent(assignment.assignmentID)
-                                    : '/quiz?type=listening&id=' + encodeURIComponent(assignment.postID) + '&aid=' + encodeURIComponent(assignment.assignmentID),
+                                    : '/quiz?type=listening&id=' + encodeURIComponent(assignment.postID) + '&aid=' + encodeURIComponent(assignment.assignmentID) + '&lh=1',
                                 target: '_blank'
                             }, [
                                 assignment.name,
